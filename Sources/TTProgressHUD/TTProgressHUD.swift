@@ -62,7 +62,7 @@ private struct ImageView: View {
     var body: some View {
         imageForHUDType?
             .resizable()
-            .frame(width: imageViewSize.width, height: imageViewSize.height)
+            .frame(width: 50, height: 50)
             .foregroundColor(imageViewForegroundColor.opacity(0.8))
     }
     
@@ -150,7 +150,7 @@ public struct TTProgressHUD: View {
                             config.foregroundColor
                         }
                         
-                        VStack(spacing: 20) {
+                        VStack(spacing: 16) {
                             if config.type == .loading {
                                 IndefiniteAnimatedView(
                                     animatedViewSize: config.imageViewSize,
@@ -172,17 +172,17 @@ public struct TTProgressHUD: View {
                     }
                     .cornerRadius(config.cornerRadius)
                     .overlay(
-                        // Fix required since .border can not be used with
-                        // RoundedRectangle clip shape
+//                         Fix required since .border can not be used with
+//                         RoundedRectangle clip shape
                         RoundedRectangle(cornerRadius: config.cornerRadius)
                             .stroke(config.borderColor, lineWidth: config.borderWidth)
                     )
                     .aspectRatio(1, contentMode: .fit)
-                    .padding(geometry.size.width / config.paddingRatio)
+                    .frame(width: config.popupSize.width, height: config.popupSize.height)
                     .shadow(color: config.shadowColor, radius: config.shadowRadius)
                 }
             }
-            .animation(.spring())
+            .animation(.spring(), value: 1)
             .onTapGesture {
                 if config.allowsTapToHide {
                     withAnimation {
