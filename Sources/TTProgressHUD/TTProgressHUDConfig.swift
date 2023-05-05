@@ -47,6 +47,8 @@ public struct TTProgressHUDConfig: Hashable {
 
     // Haptics
     var hapticsEnabled: Bool
+    
+    var paddingRatio: CGFloat = 7
 
     public init(
         type: TTProgressHUDType         = .loading,
@@ -72,7 +74,8 @@ public struct TTProgressHUDConfig: Hashable {
         shouldAutoHide: Bool            = false,
         allowsTapToHide: Bool           = false,
         autoHideInterval: TimeInterval  = 10.0,
-        hapticsEnabled: Bool            = true
+        hapticsEnabled: Bool            = true,
+        paddingRatio: CGFloat           = 7,
     ) {
         self.type = type
 
@@ -111,5 +114,6 @@ public struct TTProgressHUDConfig: Hashable {
         self.hapticsEnabled = hapticsEnabled
         
         self.foregroundColor = foregroundColor
+        self.paddingRatio = paddingRatio
     }
 }

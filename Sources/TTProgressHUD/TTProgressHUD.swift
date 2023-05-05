@@ -178,7 +178,7 @@ public struct TTProgressHUD: View {
                             .stroke(config.borderColor, lineWidth: config.borderWidth)
                     )
                     .aspectRatio(1, contentMode: .fit)
-                    .padding(geometry.size.width / 7)
+                    .padding(geometry.size.width / config.paddingRatio)
                     .shadow(color: config.shadowColor, radius: config.shadowRadius)
                 }
             }
